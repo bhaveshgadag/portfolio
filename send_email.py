@@ -10,7 +10,7 @@ def send_email(message):
     username = os.getenv("EMAIL")
     password = os.getenv("GMAIL_APP_PASSWORD")
 
-    receiver = "bhaveshgadag46@gmail.com"
+    receiver = os.getenv("EMAIL")
     context = ssl.create_default_context()
 
     with smtplib.SMTP_SSL(host, port, context=context) as server:
@@ -26,5 +26,4 @@ From :test@example.com
 This is a test email from gmail smtp.
 """
 
-    test_receiver = "bhaveshgadag46@gmail.com"
-    send_mail(test_receiver, test_message)
+    send_email(test_message)
